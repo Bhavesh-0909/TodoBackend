@@ -1,5 +1,7 @@
 const express = require('express')
-require('dotenv').config()
+require('dotenv').config();
+const Todoroute = require('./router/createTodo');
+const database = require('./config/database');
 
 const PORT = process.env.PORT;
 
@@ -12,3 +14,12 @@ app.listen(PORT, ()=>{
 app.get('/', (req, res)=>{
     res.send("<h1>server started</h1>")
 })
+
+//middleware to parse json request body
+app.use(express.json());
+
+app.use('/api/v1', Todoroute);
+
+database();
+
+
