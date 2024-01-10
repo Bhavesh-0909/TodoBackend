@@ -1,6 +1,6 @@
 const express = require('express')
 require('dotenv').config();
-const Todoroute = require('./router/createTodo');
+const Todoroute = require('./router/Todo');
 const database = require('./config/database');
 
 const PORT = process.env.PORT;
